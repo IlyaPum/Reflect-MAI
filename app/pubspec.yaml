@@ -36,6 +36,35 @@ flutter:
   uses-material-design: true
 
   assets:
-    # Офлайн-база и карта — пока пустые, наполняются на этапах 1–3
-    - assets/map/
+    # Офлайн-база (этап 3); карта — тайлы OSM района МАИ, зум 16–18 (этап 1).
+    # Тайлы лежат в assets/map/{z}/{x}/ — Flutter не рекурсивен, поэтому
+    # каждая x-папка перечислена явно (генерируется tools/download_tiles.dart).
+    - assets/map/16/39599/
+    - assets/map/16/39600/
+    - assets/map/16/39601/
+    - assets/map/16/39602/
+    - assets/map/17/79198/
+    - assets/map/17/79199/
+    - assets/map/17/79200/
+    - assets/map/17/79201/
+    - assets/map/17/79202/
+    - assets/map/17/79203/
+    - assets/map/17/79204/
+    - assets/map/17/79205/
+    - assets/map/18/158396/
+    - assets/map/18/158397/
+    - assets/map/18/158398/
+    - assets/map/18/158399/
+    - assets/map/18/158400/
+    - assets/map/18/158401/
+    - assets/map/18/158402/
+    - assets/map/18/158403/
+    - assets/map/18/158404/
+    - assets/map/18/158405/
+    - assets/map/18/158406/
+    - assets/map/18/158407/
+    - assets/map/18/158408/
+    - assets/map/18/158409/
+    - assets/map/18/158410/
+    - assets/map/18/158411/
     - assets/db/
