@@ -39,10 +39,19 @@ flutter:
     # Офлайн-база (этап 3); карта — тайлы OSM района МАИ, зум 16–18 (этап 1).
     # Тайлы лежат в assets/map/{z}/{x}/ — Flutter не рекурсивен, поэтому
     # каждая x-папка перечислена явно (генерируется tools/download_tiles.dart).
+    - assets/map/16/39596/
+    - assets/map/16/39597/
+    - assets/map/16/39598/
     - assets/map/16/39599/
     - assets/map/16/39600/
     - assets/map/16/39601/
     - assets/map/16/39602/
+    - assets/map/16/39603/
+    - assets/map/16/39604/
+    - assets/map/16/39605/
+    - assets/map/17/79195/
+    - assets/map/17/79196/
+    - assets/map/17/79197/
     - assets/map/17/79198/
     - assets/map/17/79199/
     - assets/map/17/79200/
@@ -51,6 +60,12 @@ flutter:
     - assets/map/17/79203/
     - assets/map/17/79204/
     - assets/map/17/79205/
+    - assets/map/17/79206/
+    - assets/map/17/79207/
+    - assets/map/17/79208/
+    - assets/map/18/158393/
+    - assets/map/18/158394/
+    - assets/map/18/158395/
     - assets/map/18/158396/
     - assets/map/18/158397/
     - assets/map/18/158398/
@@ -67,4 +82,7 @@ flutter:
     - assets/map/18/158409/
     - assets/map/18/158410/
     - assets/map/18/158411/
+    - assets/map/18/158412/
+    - assets/map/18/158413/
+    - assets/map/18/158414/
     - assets/db/

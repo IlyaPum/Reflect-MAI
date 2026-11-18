@@ -5,6 +5,13 @@ import 'package:latlong2/latlong.dart';
 /// Центр кампуса МАИ (Волоколамское шоссе, 64).
 const LatLng maiCenter = LatLng(55.9215, 37.5335);
 
+/// Границы офлайн-зоны (совпадают с bbox в tools/download_tiles.dart).
+/// Карта не даёт выйти за них — за границей тайлов нет.
+final LatLngBounds maiBounds = LatLngBounds(
+  const LatLng(55.915, 37.525),
+  const LatLng(55.930, 37.545),
+);
+
 void main() => runApp(const ReflectApp());
 
 /// Reflect — офлайн-навигатор по кампусу МАИ без GPS.
@@ -30,11 +37,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Reflect'), centerTitle: true),
       body: FlutterMap(
-        options: const MapOptions(
+        options: MapOptions(
           initialCenter: maiCenter,
           initialZoom: 17,
           minZoom: 16,
           maxZoom: 18,
+          // Не позволяем уехать за пределы офлайн-тайлов
+          cameraConstraint: CameraConstraint.contain(bounds: maiBounds),
         ),
         children: [
           // Офлайн-подложка: тайлы OSM из assets (скачаны tools/download_tiles.dart)

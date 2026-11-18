@@ -24,6 +24,10 @@ const double lonMax = 37.545;
 
 const List<int> zooms = [16, 17, 18];
 const String outputRoot = 'app/assets/map';
+
+// Запас по тайлам во все стороны: экран телефона видит больше площади,
+// чем bbox кампуса, — без запаса края карты будут пустыми.
+const int padTiles = 3;
 const String userAgent =
     'Reflect-MAI-Navigator-dev/0.1 (student project; contact: iburmolichenko@gmail.com)';
 
@@ -49,8 +53,13 @@ Future<void> main() async {
   var failed = 0;
 
   for (final z in zooms) {
-    final (x0, y0) = lonLatToTile(lonMin, latMax, z); // левый-верхний угол
-    final (x1, y1) = lonLatToTile(lonMax, latMin, z); // правый-нижний угол
+    final (bx0, by0) = lonLatToTile(lonMin, latMax, z); // левый-верхний угол
+    final (bx1, by1) = lonLatToTile(lonMax, latMin, z); // правый-нижний угол
+    final n = 1 << z;
+    final x0 = (bx0 - padTiles).clamp(0, n - 1);
+    final y0 = (by0 - padTiles).clamp(0, n - 1);
+    final x1 = (bx1 + padTiles).clamp(0, n - 1);
+    final y1 = (by1 + padTiles).clamp(0, n - 1);
     stdout.writeln('Zoom $z: x $x0..$x1, y $y0..$y1');
 
     for (var x = x0; x <= x1; x++) {
