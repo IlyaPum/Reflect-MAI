@@ -1,0 +1,41 @@
+name: reflect_app
+description: "Reflect — автономный офлайн-навигатор по кампусу МАИ без GPS: позиционирование по фото здания и датчикам движения."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.14.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Офлайн-карта (этап 1 роадмапа)
+  flutter_map: ^8.2.1
+  latlong2: ^0.9.1
+
+  # Сенсоры и шагомер (этап 4)
+  sensors_plus: ^7.0.0
+  flutter_compass: ^0.8.0
+
+  # Камера и метаданные (этап 2 — сбор базы)
+  camera: ^0.11.0
+  native_exif: ^0.7.0
+
+  # ML на устройстве (этап 3)
+  tflite_flutter: ^0.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # Офлайн-база и карта — пока пустые, наполняются на этапах 1–3
+    - assets/map/
+    - assets/db/
