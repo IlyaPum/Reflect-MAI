@@ -32,6 +32,12 @@
 flutter build apk --release
 ```
 
+### Замечания по сборке (важно)
+
+- **Путь проекта должен быть из ASCII-символов** (проект живёт в `C:\dev\reflect`) — Dart AOT-компилятор не работает с кириллицей в пути, а Gradle-проверку мы обошли флагом `android.overridePathCheck`.
+- **Патч pub-кэша:** `tflite_flutter 0.11.0` собран под `compileSdkVersion 31`, что несовместимо с его androidx-зависимостями. После `flutter pub cache repair` патч нужно повторить: в файле `%LOCALAPPDATA%\Pub\Cache\hosted\pub.dev\tflite_flutter-0.11.0\android\build.gradle` поменять `compileSdkVersion 31` → `36`.
+- В `android/gradle.properties` два обходных флага (`kotlin.jvm.target.validation.mode=warning`, `android.uniquePackageNames=false`) — причины описаны в комментариях там же.
+
 ## Статус
 
 🚧 MVP в разработке. Текущий этап и дорожная карта — в [PRODUCT.md](PRODUCT.md#7-дорожная-карта-mvp).
